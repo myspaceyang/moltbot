@@ -1,5 +1,5 @@
 """
-Amazon Listing Generator - 简化版
+Amazon Listing Generator
 主程序入口
 """
 
@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 import os
 from PIL import Image
 import threading
+from transformers import pipeline
 import json
 from urllib.parse import urlparse
 
