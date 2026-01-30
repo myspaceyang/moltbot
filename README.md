@@ -1,0 +1,3 @@
+# moltbot
+
+Empty repository initialized.
