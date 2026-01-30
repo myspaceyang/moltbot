@@ -6,3 +6,4 @@ openai
 python-dotenv
 transformers
 torch
+pyinstaller
