@@ -1,9 +1,0 @@
-requests
-beautifulsoup4
-lxml
-pillow
-openai
-python-dotenv
-transformers
-torch
-pyinstaller
