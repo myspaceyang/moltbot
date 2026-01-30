@@ -85,5 +85,6 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=None  # 可以添加图标文件路径
+    icon=None,  # 可以添加图标文件路径
+    onefile=True  # 单文件模式
 )

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Amazon Listing Generator 构建脚本
+# Amazon Listing Generator 构建脚本 - 单文件版本
 
 echo "正在安装PyInstaller..."
 pip install pyinstaller
@@ -9,10 +9,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "正在构建EXE文件..."
+echo "正在构建单文件EXE..."
 pyinstaller --name=AmazonListingGenerator \
     --windowed \
-    --onedir \
+    --onefile \
     --add-data "src:src" \
     --hidden-import=requests \
     --hidden-import=urllib3 \
@@ -50,19 +50,12 @@ pyinstaller --name=AmazonListingGenerator \
     --hidden-import=torch.optim \
     --hidden-import=torch.utils \
     --hidden-import=torch.utils.data \
-    --collect-all=PIL \
-    --collect-all=bs4 \
-    --collect-all=lxml \
-    --collect-all=requests \
-    --collect-all=openai \
-    --collect-all=transformers \
-    --collect-all=torch \
     --clean \
     src/main.py
 
 if [ $? -ne 0 ]; then
-    echo "使用spec文件构建EXE文件..."
-    pyinstaller spec_file.py
+    echo "使用spec文件构建单文件EXE..."
+    pyinstaller --onefile spec_file.py
     if [ $? -ne 0 ]; then
         echo "构建失败"
         exit 1
@@ -70,4 +63,4 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "构建完成！"
-echo "EXE文件位于 dist/AmazonListingGenerator 目录中"
+echo "单文件EXE位于 dist/ 目录中，文件名为 AmazonListingGenerator.exe"
